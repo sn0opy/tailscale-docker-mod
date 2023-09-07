@@ -22,7 +22,7 @@ if [ TAILSCALE_BE_EXIT_NODE = "true" ]; then
     FLAGS="${FLAGS} --advertise-exit-node"
 fi
 
-if [ -z TAILSCALE_USE_EXIT_NODE ]; then
+if [ -v TAILSCALE_USE_EXIT_NODE ]; then
     FLAGS="${FLAGS} --exit-node=${TAILSCALE_USE_EXIT_NODE}"
 fi
 
