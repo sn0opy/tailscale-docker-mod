@@ -22,11 +22,12 @@ if [ "$TAILSCALE_BE_EXIT_NODE" = "true" ]; then
     FLAGS="${FLAGS} --advertise-exit-node"
 fi
 
+tailscale up $FLAGS
+
 if [ -v TAILSCALE_USE_EXIT_NODE ]; then
     FLAGS="${FLAGS} --exit-node=${TAILSCALE_USE_EXIT_NODE}"
+    tailscale up $FLAGS
 fi
-
-tailscale up $FLAGS
 
 # configure serve
 if [ -v TAILSCALE_SERVE_PORT ] && [ -v TAILSCALE_SERVE_MODE ]; then
